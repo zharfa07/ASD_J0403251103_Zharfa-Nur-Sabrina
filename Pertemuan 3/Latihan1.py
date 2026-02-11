@@ -15,12 +15,12 @@ class linkedlist:
     
     def insert_at_end(self, data):
         new_node = node(data)
-        if not self.head:
+        if not self.head: #jika linked list kosong
             self.head = new_node
-            self.tail = new_node
+            self.tail = new_node #tail menunjuk ke node pertama
         else:
-            self.tail.next = new_node
-            self.tail  = new_node
+            self.tail.next = new_node #sambung tail dengan node baru
+            self.tail  = new_node #update tail ke node baru
 
     def display(self):
             temp = self.head
@@ -59,3 +59,4 @@ p.delete_node(5)
 
 print("Setelah dihapus : ")
 p.display()
+
