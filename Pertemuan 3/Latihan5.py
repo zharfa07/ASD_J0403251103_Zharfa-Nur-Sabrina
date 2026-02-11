@@ -29,12 +29,14 @@ class linkedlist:
             print("null")
 
     def reverve(self):
-        print("Hasil reverse : ")
-        temp = self.tail
+        prev = None
+        temp = self.head 
         while temp:
-            print(temp.data, end="->")
-            temp = temp.prev
-        print("null")
+            next_node = temp.next
+            temp.next = prev
+            prev = temp
+            temp = next_node
+        self.head = prev
 
 r = linkedlist()
 r.insert_at_end(1)
@@ -42,6 +44,11 @@ r.insert_at_end(2)
 r.insert_at_end(3)
 r.insert_at_end(4)
 r.insert_at_end(5)
-print(f'Linked list sebelum dibalik : {r.display()}')
+print('Linked list sebelum dibalik : ')
+r.display()
+
+print("\n")
+
 r.reverve()
-print(f'Linked list setelah dibalik : {r.reverve()}')
+print('Linked list setelah dibalik : ')
+r.display()
