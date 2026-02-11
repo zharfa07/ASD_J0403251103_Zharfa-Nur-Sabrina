@@ -24,6 +24,13 @@ class doublylinkedlist:
             new_node.prev = self.tail
             self.tail = new_node #update
     
+    def display(self):
+            temp = self.head
+            while temp:
+                print(temp.data, end="->")
+                temp = temp.next    
+            print("null")
+
     def search(self, key):
         temp = self.head
         while temp:
@@ -40,9 +47,17 @@ dll.insert_at_end(6)
 dll.insert_at_end(9)
 dll.insert_at_end(14)
 dll.insert_at_end(20)
+dll.display() #menampilkan data 
+
+key = 9 #nilai yang dicari
+
+if dll.search(key): #hasil pencarian
+    print(f"elemen {key} ditemukan")
+else:
+    print(f"elemen {key} tidak ditemukan")
+
 key = 0 #nilai yang dicari
 if dll.search(key):
     print(f"elemen {key} ditemukan")
 else:
-
     print(f"elemen {key} tidak ditemukan")
