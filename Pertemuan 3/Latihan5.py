@@ -4,35 +4,36 @@
 #==============================================================================================================
 class node:
     def __init__(self, data):
-        self.data = data
-        self.next = None
+        self.data = data #menyimpan nilai data yang akan disimpan
+        self.next = None #pointer ke node berikutnya
 
 class linkedlist:
     def __init__(self):
-        self.head = None
-        self.tail = None 
+        self.head = None #node pertama 
+        self.tail = None #node terakhir 
     
     def insert_at_end(self, data):
-        new_node = node(data)
-        if not self.head:
-            self.head = new_node
-            self.tail = new_node
+        new_node = node(data) #membuat node baru
+        
+        if not self.head: #jika linked list kosong
+            self.head = new_node 
+            self.tail = new_node #tail menunjuk ke node pertama
         else:
-            self.tail.next = new_node
-            self.tail  = new_node
+            self.tail.next = new_node #sambung tail dengan node baru
+            self.tail  = new_node #update tail ke node baru
 
     def display(self):
-            temp = self.head
-            while temp:
+            temp = self.head #mulai dari head
+            while temp: 
                 print(temp.data, end="->")
-                temp = temp.next    
-            print("null")
+                temp = temp.next    #pindah ke node berikutnya
+            print("null") #tanda akhir linked list
 
-    def reverve(self):
-        prev = None
+    def reverse(self):
+        prev = None #node sebelumnya
         temp = self.head 
         while temp:
-            next_node = temp.next
+            next_node = temp.next #simpan ke node berikutnya
             temp.next = prev
             prev = temp
             temp = next_node
@@ -49,6 +50,7 @@ r.display()
 
 print("\n")
 
-r.reverve()
+r.reverse()
 print('Linked list setelah dibalik : ')
 r.display()
+
