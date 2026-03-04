@@ -23,8 +23,8 @@ def merge_sort(data, depth):
     print(f"{indent}divide -> left = {left} | right = {right}")
 
     # recursive call
-    left_sorted = merge_sort(left)
-    right_sorted = merge_sort(right)
+    left_sorted = merge_sort(left, depth)
+    right_sorted = merge_sort(right, depth)
 
     merged = merge(left_sorted, right_sorted)
     print(f"{indent}merge -> {left_sorted} + {right_sorted} = {merged}")
@@ -52,4 +52,4 @@ def merge(left, right):
     return result
     
 angka = [13,7,28,5,19,36,4]
-print("Hasil Sorting : ", merge_sort(angka))
+print("Hasil Sorting : ", merge_sort(angka, 0))
